@@ -1,0 +1,16 @@
+.inputFocused {
+    border: none; /* Remove a borda */
+    background-color: #fff; /* Fundo branco */
+    color: #333; /* Cor do texto mais escura */
+    box-shadow: 0px 0px 5px 0px rgba(255,111,97,0.5); /* Sombra leve */
+    font-size: 16px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.inputNotFocused {
+    border: none; /* Remove a borda */
+    background-color: #fff; /* Fundo branco */
+    color: #333; /* Cor do texto mais escura */
+    font-size: 16px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+}

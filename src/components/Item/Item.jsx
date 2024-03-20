@@ -5,9 +5,11 @@ import './Item.css';
 const Item = ({id, onDelete}) => {
   const [inputValue, setInputValue] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [isInputFocused, setInputFocused] = useState(false);
+  const [imageHovered, setImageHovered] = useState(false);
   
   
-  const handleInputChange = (e) => {a
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
@@ -22,10 +24,27 @@ const Item = ({id, onDelete}) => {
     }
   };
 
+  const handleInputFocused = (e) => {
+    setInputFocused(true);
+  };
+
+  const handleInputBlur = (e) => {
+    setInputFocused(false);
+  };
+
+  const handleImageHovered = (e) => {
+    setImageHovered(true);
+  }
+
+  const handleImageLeaved = (e) => {
+    setImageHovered(false);
+  }
+
+
   return (
     <div>
       <div>
-        <label htmlFor={`imageInput_${id}`}>
+        <label htmlFor={`imageInput_${id}`} onMouseEnter={handleImageHovered} onMouseLeave={handleImageLeaved}>
           {selectedImage ? (
             <img src={selectedImage} alt="Imagem Selecionada" style={{ maxWidth: '100%', maxHeight: '200px' }} />
           ) : (
@@ -44,9 +63,11 @@ const Item = ({id, onDelete}) => {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder="Digite algo..."
+        onFocus={handleInputFocused}
+        onBlur={handleInputBlur}
+        className={isInputFocused ? 'inputFocused' : 'inputNotFocused'}
+        placeholder="Nome do Item..."
       />
-      <button onClick={onDelete}>Deletar</button>
     </div>
   );
 };
