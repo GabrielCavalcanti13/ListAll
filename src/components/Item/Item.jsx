@@ -46,7 +46,12 @@ const Item = ({id, onDelete}) => {
       <div>
         <label htmlFor={`imageInput_${id}`} onMouseEnter={handleImageHovered} onMouseLeave={handleImageLeaved}>
           {selectedImage ? (
-            <img src={selectedImage} alt="Imagem Selecionada" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+            <div style={{ position: 'relative', display: 'inline-block' }}>
+               <img src={selectedImage} alt="Imagem Selecionada" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+              {imageHovered && (
+                <button onClick={onDelete} style={{ position: 'absolute', top: '5px', right: '5px', backgroundColor: 'transparent', border: 'none', color: 'black', cursor: 'pointer' }}>Deletar</button>
+              )}
+            </div>
           ) : (
             <img src={imageDefault} alt="Imagem Selecionada" style={{ maxWidth: '100%', maxHeight: '200px' }} />
           )}
