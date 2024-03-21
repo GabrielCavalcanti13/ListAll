@@ -19,13 +19,15 @@ const List = () => {
   };
 
   return (
-    <div>
-      {items.map((item) => (
-        <div key={item.id} className='container'>
-          <Item id={item.id} onDelete={() => handleDeleteItem(item.id)} />
-        </div>
-      ))}
-      <button onClick={handleAddItem}>Adicionar Item na Lista</button>
+    <div className='list-container'>
+      <div className='itens-container'>
+        {items.map((item) => (
+          <div key={item.id} className='container'>
+            <Item id={item.id} onDelete={() => handleDeleteItem(item.id)} />
+          </div>
+        ))}
+        <button onClick={handleAddItem}>Adicionar Item na Lista</button>
+      </div>
     </div>
   );
 };

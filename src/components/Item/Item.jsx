@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import imageDefault from '../../assets/image_default.jpg';
+import imageDefault from '../../assets/image_default.png';
 import './Item.css';
 
 const Item = ({id, onDelete}) => {
@@ -42,18 +42,18 @@ const Item = ({id, onDelete}) => {
 
 
   return (
-    <div>
-      <div>
+    <div className='item-container'>
+      <div className='image-container'>
         <label htmlFor={`imageInput_${id}`} onMouseEnter={handleImageHovered} onMouseLeave={handleImageLeaved}>
           {selectedImage ? (
             <div style={{ position: 'relative', display: 'inline-block' }}>
-               <img src={selectedImage} alt="Imagem Selecionada" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+               <img className='image' src={selectedImage} alt="Imagem Selecionada" />
               {imageHovered && (
                 <button onClick={onDelete} style={{ position: 'absolute', top: '5px', right: '5px', backgroundColor: 'transparent', border: 'none', color: 'black', cursor: 'pointer' }}>Deletar</button>
               )}
             </div>
           ) : (
-            <img src={imageDefault} alt="Imagem Selecionada" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+            <img className='image' src={imageDefault} alt="Imagem Selecionada" />
           )}
         </label>
         <input

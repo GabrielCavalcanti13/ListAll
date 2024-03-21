@@ -1,3 +1,14 @@
-.container {
-    display: flex;
+body {
+    background-color: rgb(28, 26, 30);
+  }
+
+.list-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.itens-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 1px;
 }
