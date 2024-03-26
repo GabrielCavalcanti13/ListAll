@@ -53,7 +53,7 @@ const Item = ({id, onDelete}) => {
               )}
             </div>
           ) : (
-            <img className='image' src={imageDefault} alt="Imagem Selecionada" />
+            <img className='image' src={imageDefault} alt="Selected Image" />
           )}
         </label>
         <input
@@ -71,7 +71,7 @@ const Item = ({id, onDelete}) => {
         onFocus={handleInputFocused}
         onBlur={handleInputBlur}
         className={isInputFocused ? 'inputFocused' : 'inputNotFocused'}
-        placeholder="Nome do Item..."
+        placeholder="Name..."
       />
     </div>
   );

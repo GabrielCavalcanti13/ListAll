@@ -14,6 +14,15 @@ const List = () => {
     ]);
   };
 
+  const handleDoneList = () => {
+    setItems((prevItems) => [
+      ...prevItems,
+      {
+        id: Date.now()
+      },
+    ]);
+  };
+
   const handleDeleteItem = (id) => {
     setItems(prevItems => prevItems.filter(item => item.id !== id));
   };
@@ -22,11 +31,14 @@ const List = () => {
     <div className='list-container'>
       <div className='itens-container'>
         {items.map((item) => (
-          <div key={item.id} className='container'>
+          <div key={item.id} className='item-container'>
             <Item id={item.id} onDelete={() => handleDeleteItem(item.id)} />
           </div>
         ))}
-        <button onClick={handleAddItem}>Adicionar Item na Lista</button>
+        <div className='buttons-container'>
+          <button onClick={handleAddItem}>Add item to List</button>
+          <button onClick={handleDoneList}>Finish List</button>
+        </div>
       </div>
     </div>
   );

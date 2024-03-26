@@ -12,3 +12,21 @@ body {
     grid-template-columns: repeat(5, 1fr); 
     gap: 1px;
 }
+
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+    margin-bottom: 42px;
+}
+
+.buttons-container button {
+    height: 60px;
+    border-radius: 8px;
+    background-color: rgb(102, 102, 102);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+}
