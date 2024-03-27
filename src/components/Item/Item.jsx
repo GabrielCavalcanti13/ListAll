@@ -40,17 +40,29 @@ const Item = ({id, onDelete}) => {
     setImageHovered(false);
   }
 
+  const handleEditImage = (e) => {
+    setSelectedImage(null);
+  };
+
 
   return (
     <div className='item-container'>
-      <div className='image-container'>
-        <label htmlFor={`imageInput_${id}`} onMouseEnter={handleImageHovered} onMouseLeave={handleImageLeaved}>
+      <div className='image-container' onMouseEnter={handleImageHovered} onMouseLeave={handleImageLeaved} style={{ position: 'relative' }}>
+          {imageHovered && (
+            <div style={{ position: 'absolute', top: '5px', right: '5px'}}>
+              <button onClick={onDelete}>Delete Item</button>
+            </div>
+          )}
+          {selectedImage && imageHovered && (
+            <div style={{ position: 'absolute', top: '5px', right: '5px'}}>
+              <button onClick={handleEditImage}>Edit Image</button>
+              <button onClick={onDelete}>Delete Item</button>
+          </div>
+          )}
+        <label htmlFor={`imageInput_${id}`}>
           {selectedImage ? (
-            <div style={{ position: 'relative', display: 'inline-block' }}>
+            <div>
                <img className='image' src={selectedImage} alt="Imagem Selecionada" />
-              {imageHovered && (
-                <button onClick={onDelete} style={{ position: 'absolute', top: '5px', right: '5px', backgroundColor: 'transparent', border: 'none', color: 'black', cursor: 'pointer' }}>Deletar</button>
-              )}
             </div>
           ) : (
             <img className='image' src={imageDefault} alt="Selected Image" />
