@@ -34,16 +34,21 @@ const Item = ({id, onDelete}) => {
 
   const handleImageHovered = (e) => {
     setImageHovered(true);
-  }
+  };
 
   const handleImageLeaved = (e) => {
     setImageHovered(false);
-  }
+  };
 
   const handleEditImage = (e) => {
     setSelectedImage(null);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.target.blur();
+    }
+  };
 
   return (
     <div className='item-container'>
@@ -82,6 +87,7 @@ const Item = ({id, onDelete}) => {
         onChange={handleInputChange}
         onFocus={handleInputFocused}
         onBlur={handleInputBlur}
+        onKeyDown={handleKeyDown}
         className={isInputFocused ? 'inputFocused' : 'inputNotFocused'}
         placeholder="Name..."
       />
