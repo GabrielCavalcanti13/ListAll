@@ -22,6 +22,7 @@ const Item = ({id, onDelete}) => {
       };
       reader.readAsDataURL(file);
     }
+    setImageHovered(false)
   };
 
   const handleInputFocused = (e) => {
