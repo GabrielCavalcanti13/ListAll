@@ -41,7 +41,7 @@ const Item = ({id, onDelete}) => {
   };
 
   const handleEditImage = (e) => {
-    setSelectedImage(null);
+    document.getElementById(`imageInput_${id}`).click();
   };
 
   const handleKeyDown = (e) => {
