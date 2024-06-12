@@ -41,10 +41,6 @@ const Item = ({id, onDelete}) => {
     setImageHovered(false);
   };
 
-  const handleEditImage = (e) => {
-    document.getElementById(`imageInput_${id}`).click();
-  };
-
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.target.blur();
@@ -61,7 +57,6 @@ const Item = ({id, onDelete}) => {
           )}
           {selectedImage && imageHovered && (
             <div style={{ position: 'absolute', top: '5px', right: '5px'}}>
-              <button onClick={handleEditImage}>Edit Image</button>
               <button onClick={onDelete}>Delete Item</button>
           </div>
           )}
