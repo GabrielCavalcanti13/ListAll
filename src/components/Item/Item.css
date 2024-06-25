@@ -54,3 +54,29 @@
     opacity: 0.7;
     transition: 0.3s;
 }
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgb(243, 239, 239);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-button:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.delete-button img {
+    width: 20px;
+    height: 20px;
+  }

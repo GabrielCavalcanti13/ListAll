@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import imageDefault from '../../assets/image_default.png';
+import trashImage from '../../assets/trash.png';
 import './Item.css';
 
 const Item = ({id, onDelete}) => {
@@ -50,16 +51,6 @@ const Item = ({id, onDelete}) => {
   return (
     <div className='item-container'>
       <div className='image-container' onMouseEnter={handleImageHovered} onMouseLeave={handleImageLeaved} style={{ position: 'relative' }}>
-          {imageHovered && (
-            <div style={{ position: 'absolute', top: '5px', right: '5px'}}>
-              <button onClick={onDelete}>Delete Item</button>
-            </div>
-          )}
-          {selectedImage && imageHovered && (
-            <div style={{ position: 'absolute', top: '5px', right: '5px'}}>
-              <button onClick={onDelete}>Delete Item</button>
-          </div>
-          )}
         <label htmlFor={`imageInput_${id}`}>
           {selectedImage ? (
             <div>
@@ -69,6 +60,13 @@ const Item = ({id, onDelete}) => {
             <img className='image' src={imageDefault} alt="Selected Image" />
           )}
         </label>
+        {imageHovered && (
+            <div  style={{ position: 'absolute', top: '5px', right: '5px'}}>
+              <button className="delete-button" onClick={onDelete}>
+                <img src={trashImage} alt="Selected Image" />
+              </button>
+            </div>
+          )}
         <input
           type="file"
           accept="image/*"
