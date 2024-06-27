@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import imageDefault from '../../assets/image_default.png';
 import trashImage from '../../assets/trash.png';
 import './Item.css';
 
-const Item = ({id, onDelete}) => {
-  const [inputValue, setInputValue] = useState('');
-  const [selectedImage, setSelectedImage] = useState(null);
+const Item = ({id, onDelete, onUpdate, name, image}) => {
+  const [inputValue, setInputValue] = useState(name || '');
+  const [selectedImage, setSelectedImage] = useState(image || null);
   const [isInputFocused, setInputFocused] = useState(false);
   const [imageHovered, setImageHovered] = useState(false);
+  
+  useEffect(() => {
+    onUpdate(id, { name: inputValue, image: selectedImage });
+  }, [inputValue, selectedImage]);
   
   
   const handleInputChange = (e) => {
